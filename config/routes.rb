@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :tasks, except: [:show]
 
   # Création des routes pour les emails
-  resources :emails, only: [:create]
+  resources :emails, only: [:index, :create, :show]
 
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

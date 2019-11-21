@@ -18,10 +18,11 @@ require 'faker'
   end
 end
 
+Email.destroy_all
 
 5.times do
 	email = Email.create(object: Faker::Book.title,
 											body: Faker::Book.title)
 	email.save
-	print "Email créé"
+	puts "Email créé"
 end

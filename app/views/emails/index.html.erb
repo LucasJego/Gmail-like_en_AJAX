@@ -1,18 +1,41 @@
 <h1>Emails#index</h1>
 
-<!-- Bouton "recevoir un email -->
-<a href="/emails/" data-method="POST"><button class="btn btn-primary" style="margin: 23px;">Recevoir un email</button></a>
+<!-- Bouton "recevoir un email" -->
+<!-- Le href renvoie sur la méthode "create" du controller "emails_controller.rb". Cette méthode va créer un nouvel email via Faker. -->
+<!-- On rajoute "data-remote="true"" pour indiquer que le lien va suivre le protocole AJAX -->
+<!--<a href="<%= emails_path%>" data-method="POST"><button class="btn btn-primary" style="margin: 23px;" data-remote="true">Recevoir un email</button></a>-->
+<%= link_to "recevoir un email", emails_path, method: :post, remote: true %>
 
 <!-- Tableau d'affichage des emails -->
-<div style="border: 2px solid black; display: flex; flex-direction: row; justify-content: space-between; margin: 23px;">
+<div  id="object-list" class="container row" style="border: 2px solid black; display: flex; flex-direction: row; justify-content: space-between; margin: 23px;">
 
-	<!-- Colonne pour les objets des emails -->
-	<div class="col-6" style="border: 2px solid blue;">
-		<h2 style="font-size: 20px;">Liste des emails</h2>
+  <!-- En-têtes -->
+	<div class="container row" style="border: 1px solid white;">
+    <div class="col-6">
+    	<h2 style="font-size: 20px;">Liste des emails</h2>
+    </div>
+    <div class="col-6">
+    	<h2 style="font-size: 20px;">Email sélectionné</h2>
+    </div>
 	</div>
-	
-	<!-- Colonne pour le contenu des emails -->
-	<div class="col-6" style="border: 2px solid red;">
-		<h2 style="font-size: 20px;">Email sélectionné</h2>
+
+
+  <div class="container row">
+		<% @emails.each do |email| %>
+
+      <!-- Colonne pour les objets des emails -->
+	    <div class="col-6" style="border: 3px solid blue;">
+				<p><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
+			</div>
+			
+
+      <!-- Colonne pour le contenu des emails -->
+	    <div id="display-email" class="col-6" style="border: 3px solid red;">
+				<p></p>
+			</div>
+
+		<% end %>
+
 	</div>
+
 </div>

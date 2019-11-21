@@ -1,0 +1,21 @@
+alert("Le fichier JS est bien exécuté !");
+
+
+
+
+<% #On veut modifier le DOM de la page afin d'ajouter à la%>
+<% #fin de la liste de la liste des objets, l'objet de l'email créé.%>
+<% #Pour cela, on commence par cibler l'élément dans lequel%>
+<% #on va devoir rajouter cette tâche :%>
+<% #document.getElementById("") permet de pointer l'élément%> 
+<% #voulu (ici )%>
+
+<% #Une fois le bon élément modifié, on veut ajouter un%>
+<% #élément HTML à la fin de la liste, juste après le %>
+<% #dernier élément (d'où le "beforeend") :%>
+<% #insertAdjacentHTML("beforeend", "")%>
+
+
+document.getElementById("object-list").insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>")
+
+
