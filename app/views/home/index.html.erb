@@ -1,0 +1,49 @@
+<h1 class="text-center mb-4">Welcome to my todolist app</h1>
+
+<!-- On fait appel à la partial "_task_form.html.erb" située dans le dossier "app/views/layouts/" -->
+<%= render 'layouts/task_form'  %>
+
+<div class="container">
+  <ul>
+  <% @categories.each do  |category|%>
+  <li><%= category.title  %></li>
+  <div class="card">
+
+    <!-- On ajoute un id dynamique pour tenir compte de la catégorie dans laquelle la tâche est répertoriée -->
+    <ul id="<%= category.title %>">
+      <% category.tasks.each do |task|  %>
+      <li>
+        <%= task.title  %>
+        <% unless task.deadline.nil? %>
+          , to read: <%= task.deadline.strftime('%D')  %>
+        <% end %>
+
+        <!-- Bouton pour supprimer une tâche. En l'état, le bouton n'est pas fonctionnel, il s'affiche juste. -->
+        <button class="btn btn-danger" style="height: 22px; font-size: 10px">Dégager cette merde</button>
+
+        <!-- Lien contenant une icône poubelle qui envoie sur l'URL "/tasks/id" et utilise la méthode DELETE --> 
+        <!-- Pour indiquer que le lien va suivre le protocole AJAX, on a rajouté "data-remote= 'true'" -->
+        <a href='/tasks/<%= task.id%>' data-method= 'DELETE' data-remote= 'true'><%= fa_icon "trash" %></a>
+
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </ul>
+</div>
+
+<!-- Images de robots -->
+<div class="container">
+  <div class="row">
+    <% @tasks.each do |task|  %>
+      <div class="card col-3">
+        <% unless task.image.nil? %>
+          <%= image_tag task.image, class: "rounded-circle" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%=fa_icon "trash"%>

@@ -1,0 +1,5 @@
+
+<!-- Le contenu de cette partial fait appel à une variable ruby s'appelant "task" -->
+<li><%= task.title %> to do <%=  task.deadline.strftime("%D")  %></li>
+
+<!-- Cette partial va être appelée via le fichier "create.js.erb" dans lequel on va passer la bonne valeur de la variable ruby -->

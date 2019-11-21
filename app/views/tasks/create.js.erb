@@ -1,0 +1,36 @@
+/*
+Lorsque l'utilisateur clique sur le bouton
+"Create task" de la page d'accueil (index.html.erb),
+c'est la méthode "create" du controller
+"tasks_controller" qui est exécutée. On a codé
+cette méthode pour qu'elle affiche le contenu du
+fichier "create.js.erb", soit une alerte disant
+que ce fichier JS a bien été exécuté.
+*/
+alert("Le fichier JS est bien exécuté !");
+
+
+/*
+On veut modifier le DOM de la page afin d'ajouter à la
+fin de la liste de la bonne catégorie la tâche à faire.
+Pour cela, on commence par cibler l'élément dans lequel
+on va devoir rajouter cette tâche :
+document.getElementById("") permet de pointer l'élément 
+voulu (ici )
+
+Une fois le bon élément modifié, on veut ajouter un
+élément HTML à la fin de la liste, juste après le 
+dernier élément (d'où le "beforeend") :
+insertAdjacentHTML("beforeend", "")
+*/
+
+document.getElementById("<%= @category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")
+
+/*
+La partie de code "<%= j render 'task', task: @task %>"
+désigne l'élément à insérer.
+Ici, on dit à Rails que l'élément est "@task" et qu'il
+est situé dans le partial "_task.html.erb" (on le dit
+à Rails avec le code "render 'task'").
+j correspond au code suivant : "escape_javascript"
+*/
