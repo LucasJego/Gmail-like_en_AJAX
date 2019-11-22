@@ -1,5 +1,8 @@
-alert("On va tout dégager!")
+//alert("On va tout dégager!")
 
 // On veut sélectionner la section contenant l'objet du mail dans la colonne de gauche
 //  et tout ce qu'il y a dans la colonne de droite
-document.getElementById("email-object").remove()
+//document.getElementById("email-object").remove()
+
+document.getElementById("email_<%= @email.id() %>").remove();
+document.getElementById("display-email").remove();

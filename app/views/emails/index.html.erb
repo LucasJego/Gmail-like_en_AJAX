@@ -7,10 +7,10 @@
 <%= link_to "recevoir un email", emails_path, method: :post, remote: true, class:"btn btn-primary", style:"margin: 22px" %>
 
 <!-- Tableau d'affichage des emails -->
-<div  id="object-list" class="container row" style="border: 2px solid black; display: flex; flex-direction: row; justify-content: space-between; margin: 23px;">
+<div  id="object-list" class="container row" style="border: 2px solid black; border-radius: 10px; display: flex; flex-direction: row; justify-content: space-between; margin: 23px;">
 
   <!-- En-têtes -->
-	<div class="container row" style="border: 1px solid white;">
+	<div class="container row" style="border: 0px solid white; margin-top: 13px;">
     <div class="col-6">
     	<h2 style="font-size: 20px;">Liste des emails</h2>
     </div>
@@ -28,14 +28,14 @@
       <!-- Si l'email n'a pas été lu ou est marqué comme non lu -->
       <% if email.read == false %>
 
-		    <div class="col-6" style="border: 3px solid blue;">
-					<p id="email-object" style="font-weight: bold;"><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
+		    <div class="col-6" style="border: 0px solid white;">
+					<p id="email_<%= email.id() %>" style="font-weight: bold;"><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
 				</div>
       
       <!-- Si l'email a été lu -->
 			<% else %>
 
-			  <div class="col-6" style="border: 3px solid blue;">
+			  <div class="col-6" style="border: 0px solid white;">
 					<p id="email-object"><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
 				</div>
 
@@ -43,7 +43,7 @@
 
 
       <!-- Colonne pour le contenu des emails -->
-	    <div id="display-email" class="col-6" style="border: 3px solid red;">
+	    <div id="display-email" class="col-6" style="border: 0px solid white;">
 			</div>
 
 		<% end %>

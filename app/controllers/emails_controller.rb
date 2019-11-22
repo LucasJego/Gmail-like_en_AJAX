@@ -9,7 +9,8 @@ class EmailsController < ApplicationController
 
   	# Création de l'email via Faker
   	@email = Email.new(object: Faker::Book.title,
-											body: Faker::Book.title)
+											body: Faker::Book.title,
+											read: false)
     
     # Si l'email a bien été sauvegardé,
   	if @email.save

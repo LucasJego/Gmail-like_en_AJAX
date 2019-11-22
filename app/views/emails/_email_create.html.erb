@@ -1,4 +1,18 @@
 
-<div class="col-6" style="border: 3px solid blue;">
-	<p><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
-</div>
+
+
+      <!-- Si l'email n'a pas été lu ou est marqué comme non lu -->
+      <% if email.read == false %>
+
+		    <div class="col-6" style="border: 0px solid white;">
+					<p id="email_<%= email.id() %>" style="font-weight: bold;"><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
+				</div>
+      
+      <!-- Si l'email a été lu -->
+			<% else %>
+
+			  <div class="col-6" style="border: 0px solid white;">
+					<p id="email-object"><%= link_to "#{email.object}", email_path(email), method: :get, remote: true %></p>
+				</div>
+
+			<% end %>
