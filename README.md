@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Appli Gmail-like en AJAX
 
-Things you may want to cover:
+URL pour accéder à cette app en ligne : https://gmail-like-app.herokuapp.com/
 
-* Ruby version
 
-* System dependencies
+Pour faire tourner l'appli en local :
 
-* Configuration
+1. bundle install
+2. rails db:create
+3. rails db:migrate
+4. rails db:seed
+5. rails s
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+La page d'accueil est accessible à l'URL suivante : http://localhost:3000/

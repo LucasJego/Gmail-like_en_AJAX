@@ -1,4 +1,4 @@
 alert("La méthode 'show' a bien fonctionné en JS")
 
 
-document.getElementById("display-email").insertAdjacentHTML("beforeend", "Youpi");
+document.getElementById("display-email").insertAdjacentHTML("beforeend", "<%= j render 'email_show', email: @email %>");

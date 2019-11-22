@@ -1,0 +1,19 @@
+<div id="display-email" style="border: 3px solid white;">
+	<p style="font-size: 20px">Objet : <%= @email.object %></p>
+	<p>Contenu : <%= @email.body %></p>
+
+<br/>
+
+  <!-- Div contenant les boutons -->
+	<div style="display: flex; flex-direction: row; justify-content: space-around;">
+		<!-- Bouton pour supprimer l'email -->
+		<%= link_to "Supprimer", email_path(), method: :delete, class:"btn btn-danger", remote: true %>
+		<!-- Bouton pour marquer l'email comme non-lu ou comme lu -->
+		<% if @email.read == false %>
+			<button class="btn btn-secondary">Marquer comme non-lu</button>
+		<% else %>
+		  <button class="btn btn-secondary">Marquer comme lu</button>
+		<% end %>
+	</div>
+</div>
+

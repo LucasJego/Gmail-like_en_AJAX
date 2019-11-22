@@ -22,7 +22,8 @@ Email.destroy_all
 
 5.times do
 	email = Email.create(object: Faker::Book.title,
-											body: Faker::Book.title)
+											body: Faker::Book.title,
+                      read: false)
 	email.save
 	puts "Email créé"
 end
